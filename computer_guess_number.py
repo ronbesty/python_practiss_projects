@@ -28,17 +28,20 @@ def comp_guess(x):
     feedback = ""
     # loop to check if the number is right
     while feedback != "c":
-        random_num = random.randint(low,high)
+        if low != high:
+            random_num = random.randint(low,high)
+        else:
+            random_num = low #To prevent the state of Low == high
 
         # take the feedback from the user 
         feedback = input(f"Whats on your mind man? is it {random_num}? ")
 
         # There are two possibilities 
         if feedback == "h":
-            random_num = high - 1
+            high = random_num - 1
         
         elif feedback == "l":
-            random_num = low + 1
+            low = random_num + 1
     print("Bang on!")
 
 comp_guess(10)
